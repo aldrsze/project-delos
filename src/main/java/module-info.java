@@ -1,7 +1,9 @@
 module com.aldrsze {
     requires javafx.controls;
     requires javafx.fxml;
+    requires transitive javafx.graphics;
 
-    opens com.aldrsze to javafx.fxml;
     exports com.aldrsze;
+    exports com.aldrsze.frontend;
+    exports com.aldrsze.backend;
 }
