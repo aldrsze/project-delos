@@ -4,15 +4,27 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+
+import java.io.File;
+
 import javafx.application.Platform;
 
 public class TopBar extends MenuBar {
 
-    public TopBar(Runnable onShowAbout) {
+    public TopBar(Runnable onShowAbout, java.util.function.Consumer<File> onOpenFile) {
         // 1. File Menu
         Menu fileMenu = new Menu("File");
         MenuItem openItem = new MenuItem("Open PDF...");
         MenuItem exitItem = new MenuItem("Exit");
+
+        openItem.setOnAction(e -> {
+            javafx.stage.FileChooser fileChooser = new javafx.stage.FileChooser();
+            fileChooser.getExtensionFilters().add(
+                new javafx.stage.FileChooser.ExtensionFilter("PDF Files", "*.pdf")
+            );
+            File selectedFile = fileChooser.showOpenDialog(this.getScene().getWindow());
+            onOpenFile.accept(selectedFile);
+        });
         
         exitItem.setOnAction(e -> Platform.exit());
         
