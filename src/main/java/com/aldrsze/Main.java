@@ -1,25 +1,40 @@
 package com.aldrsze;
 
-import com.aldrsze.frontend.MainView; // Import from frontend folder
-import com.aldrsze.backend.PdfService;  // Import from backend folder
+import com.aldrsze.frontend.TopBar;
+import com.aldrsze.frontend.MainView;
+import com.aldrsze.frontend.AboutView;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    private BorderPane root;
+
     @Override
     public void start(Stage stage) {
-        // 1. Get data from the backend
-        PdfService backend = new PdfService();
-        String info = backend.getDocumentInfo();
+        root = new BorderPane();
 
-        // 2. Pass that data to the frontend
-        MainView ui = new MainView(info);
+        // Pass the 'showAbout' method as a reference to the menu
+        TopBar menuBar = new TopBar(this::showAbout);
+        root.setTop(menuBar);
 
-        Scene scene = new Scene(ui, 640, 480);
-        stage.setScene(scene);
+        // Set initial content
+        showMainContent();
+
+        Scene scene = new Scene(root, 800, 600);
         stage.setTitle("Project Delos");
+        stage.setScene(scene);
         stage.show();
+    }
+
+    private void showMainContent() {
+        root.setCenter(new MainView("PDF Reader Content Goes Here"));
+    }
+
+    private void showAbout() {
+        // Pass the 'showMainContent' method to the AboutView back button
+        root.setCenter(new AboutView(this::showMainContent));
     }
 
     public static void main(String[] args) {
