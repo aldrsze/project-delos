@@ -1,70 +1,37 @@
-# 📖 Project Delos
+# Project Delos
 
-**Project Delos** is a lightweight, open-source PDF reader built entirely with Java. It was designed to bridge the gap between heavy, feature-bloated PDF software and simple viewing needs, while serving as a comprehensive learning resource for new programmers.
+## Intro
+A lightweight, open-source PDF reader built entirely with Java. Designed to bridge the gap between heavy software and simple viewing needs. Reading made simple, code made clear.
 
-Whether you're looking for a clean reading experience or a reference for building JavaFX applications, Project Delos provides a robust, extensible foundation.
+## Video or Image Presentation
+![Project Screenshot](images/screenshot.png)
 
----
+## Technologies
+- Java 21
+- JavaFX 13
+- Apache PDFBox 3.0.1
+- Maven
 
-## ✨ Key Features
+## Features
+- Open and view PDF files.
+- Sequential page viewing.
+- Responsive page scaling.
+- Simple, intuitive navigation menu.
 
-* **Fluid Viewing:** High-performance PDF rendering with smooth scrolling and navigation.
-* **Dynamic Zoom:** Precise zoom controls to focus on fine details or view full-page layouts.
-* **Annotation Tools:** Highlight critical text and save your annotations for future review.
-* **Persistent Bookmarking:** Mark important pages and pick up right where you left off.
-* **AI-Powered Integration:** Built-in AI assistant to help summarize content or answer questions about your document.
-* **Library Persistence:** Uses SQLite to store your bookmarks and highlights locally.
+## How I built it
+The application was built using JavaFX to construct a clean, responsive frontend (`MainView`, `TopBar`, `AboutView`). In the backend, Apache PDFBox (`PdfService`) is integrated to parse and render PDF pages into images that JavaFX can display. Maven is used to handle dependencies and the build lifecycle.
 
----
+## What I learned
+Through this project, I learned how to integrate JavaFX with third-party libraries like PDFBox, manage file choosers for user input, convert standard Java AWT images to JavaFX images, and structure a modular JavaFX application.
 
-## 🛠️ Tech Stack
+## Future Enhancements
+- Implement Zoom In/Out functionality.
+- Integrate SQLite for potential data persistence or settings management.
+- Improve error handling and user feedback dialogues.
 
-* **Language:** [Java](https://www.oracle.com/java/) (Core Logic)
-* **UI Framework:** [JavaFX](https://openjfx.io/) (User Interface & Graphics)
-* **Database:** [SQLite](https://www.sqlite.org/) (Data storage for highlights and settings)
-* **Build Tooling:** Maven Java project structure suitable for IDEs like IntelliJ IDEA or Eclipse.
+## How to run the project
+Make sure you have Java 21 and Maven installed. Then, run the following command in the project root:
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* **Java Development Kit (JDK) 21** or higher
-* **JavaFX**
-
-### Installation & Setup
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/aldrsze/Delos.git
-   ```
-
-2. **Navigate to the project directory:**
-
-   ```bash
-   cd Delos
-   ```
-
-3. **Run the application:**
-
-    --
-
----
-
-
-## 👨‍💻 Developer
-
-**-aldrsze.**
-* https://github.com/aldrsze/
-
----
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-> **Project Delos** — *Reading made simple, code made clear.*
+```bash
+mvn clean javafx:run
+```

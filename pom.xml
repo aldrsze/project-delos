@@ -51,7 +51,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.aldrsze.App</mainClass>
+                            <mainClass>com.aldrsze.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
