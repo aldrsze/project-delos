@@ -3,7 +3,7 @@
 ## Intro
 A lightweight, open-source PDF reader built entirely with Java. Designed to bridge the gap between heavy software and simple viewing needs. Reading made simple, code made clear.
 
-## Video or Image Presentation
+## Image Presentation
 ![Project Screenshot](images/screenshot.png)
 
 ## Technologies
